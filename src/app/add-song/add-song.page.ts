@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { SongService } from './../shared/song.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from "@angular/forms";
+import { ArtistService } from '../shared/artist.service';
 
 
 @Component({
@@ -12,9 +13,12 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 
 export class AddSongPage implements OnInit {
 
+  Artists: any = [];
+
   songForm: FormGroup;
 
   constructor(
+    private artistAPI: ArtistService,
     private songAPI: SongService,
     private router: Router,
     public fb: FormBuilder,
@@ -24,11 +28,19 @@ export class AddSongPage implements OnInit {
       name: [''],
       release_date: [''],
       album_name: [''],
-      lyrics: ['']
+      lyrics: [''],
+      artist: ['']
     })
   }
 
   ngOnInit() { }
+
+  ionViewDidEnter() {
+    this.artistAPI.getArtistList().subscribe((res) => {
+      console.log(res)
+      this.Artists = res;
+    })
+  }
 
   onFormSubmit() {
     if (!this.songForm.valid) {
