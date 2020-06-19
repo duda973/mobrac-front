@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { ArtistService } from "../shared/artist.service";
 import { Artist } from "../shared/artist";
+import { Song } from '../shared/song';
 
 @Component({
   selector: "app-add-song",
@@ -12,7 +13,8 @@ import { Artist } from "../shared/artist";
 })
 export class AddSongPage implements OnInit {
   Artists: any = [];
-  selectedArtist: Artist;
+  artist: Artist;
+  ind: number;
 
   songForm: FormGroup;
 
@@ -28,7 +30,7 @@ export class AddSongPage implements OnInit {
       release_date: [""],
       album_name: [""],
       lyrics: [""],
-      artist: this.selectedArtist,
+      
     });
   }
 
@@ -45,7 +47,7 @@ export class AddSongPage implements OnInit {
     if (!this.songForm.valid) {
       return false;
     } else {
-      this.songAPI.addSong(this.songForm.value).subscribe((res) => {
+      this.songAPI.addSong(this.songForm.value, this.artist).subscribe((res) => {
         this.zone.run(() => {
           console.log(res);
           this.songForm.reset();
@@ -54,4 +56,9 @@ export class AddSongPage implements OnInit {
       });
     }
   }
-}
+
+  getAutor(){
+    this.artist = this.Artists[this.ind];
+  }
+  
+

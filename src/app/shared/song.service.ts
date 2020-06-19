@@ -3,6 +3,7 @@ import { Song } from "./song";
 import { Observable, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Artist } from './artist';
 
 @Injectable({
   providedIn: "root",
@@ -14,7 +15,8 @@ export class SongService {
 
   constructor(private http: HttpClient) {}
 
-  addSong(song: Song): Observable<any> {
+  addSong(song: Song, artist: Artist): Observable<any> {
+    song.artist = artist;
     return this.http
       .post<Song>(
         "http://192.168.0.13:8080/api/songs/insert",
