@@ -25,8 +25,10 @@ export class EditSongPage implements OnInit {
   ngOnInit() {
     this.getSongData(this.id);
     this.updateSongForm = this.fb.group({
-      song_name: [''],
-      artist: ['']
+      name: [''],
+      release_date: [''],
+      album_name: [''],
+      lyrics: ['']
     })
   }
 
@@ -34,9 +36,9 @@ export class EditSongPage implements OnInit {
     this.songAPI.getSong(id).subscribe(res => {
       this.updateSongForm.setValue({
         name: res['name'],
-        release_date: ['release_date'],
-        album_name: ['album_name'],
-        lyrics: ['lyrics'],
+        release_date: res['release_date'],
+        album_name: res['album_name'],
+        lyrics: res['lyrics']
 
       });
     });
