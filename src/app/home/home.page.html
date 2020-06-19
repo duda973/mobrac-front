@@ -1,44 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Biblioteka pesama
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Biblioteka pesama
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list class="ios list-ios hydrated">
-    <ion-list-header class="ios hydrated">
-      Lista pesama
-    </ion-list-header>
+    <ion-list class="ios list-ios hydrated">
+        <ion-list-header class="ios hydrated">
+            Lista pesama
+        </ion-list-header>
 
-    <ion-item *ngFor="let song of Songs" class="item-label item ios in-list ion-focusable hydrated">
-      <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
-        <h2><b>{{song.name}}</b></h2>
-        <h3><i>{{song.artist.name}}</i></h3>
-        <h4>{{song.album_name}}</h4>
-        <h4>{{song.release_date}}</h4>
-        <h4>{{song.lyrics}}</h4>
+        <ion-item *ngFor="let song of Songs" class="item-label item ios in-list ion-focusable hydrated">
+            <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+                <h2><b>{{song.name}}</b></h2>
+                <h3><i>{{song.artist.name}}</i></h3>
+                <h4>{{song.album_name}}</h4>
+                <h4>{{song.release_date}}</h4>
+                <h4>{{song.lyrics}}</h4>
+            </ion-label>
 
-      </ion-label>
-
-      <div class="item-note"  item-end>
-        <button ion-button clear [routerLink]="['/edit-song/', song._id]">
-          <ion-icon name="create-outline" style="zoom:2.0"></ion-icon>
+            <div class="item-note" item-end>
+                <button ion-button clear [routerLink]="['/edit-song/', song._id]">
+          <ion-icon name="create-outline" style="zoom: 2;"></ion-icon>
         </button>
-        <button ion-button clear (click)="deleteSong(song, i)">
-          <ion-icon name="trash-outline" style="zoom:2.0"></ion-icon>
+                <button ion-button clear (click)="deleteSong(song, i)">
+          <ion-icon name="trash-outline" style="zoom: 2;"></ion-icon>
         </button>
-      </div>
-    </ion-item>
-  </ion-list>
+            </div>
+        </ion-item>
+    </ion-list>
 
-
-  <!-- fab placed to the bottom start -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/add-song">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+    <!-- fab placed to the bottom start -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/add-song">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>
-

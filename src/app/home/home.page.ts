@@ -1,37 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { SongService } from './../shared/song.service';
+import { Component, OnInit } from "@angular/core";
+import { SongService } from "./../shared/song.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: "app-home",
+  templateUrl: "home.page.html",
+  styleUrls: ["home.page.scss"],
 })
-
 export class HomePage implements OnInit {
   Songs: any = [];
 
-  constructor(
-    private songService: SongService
-  ) {
-  }
+  constructor(private songService: SongService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ionViewDidEnter() {
     this.songService.getSongList().subscribe((res) => {
-      console.log(res)
+      console.log(res);
       this.Songs = res;
-    })
+    });
   }
 
   deleteSong(song, i) {
-    if (window.confirm('Do you want to delete user?')) {
-      this.songService.deleteSong(song._id)
-        .subscribe(() => {
-          this.Songs.splice(i, 1);
-          console.log('Song deleted!')
-        }
-        )
+    if (window.confirm("Do you want to delete user?")) {
+      this.songService.deleteSong(song._id).subscribe(() => {
+        this.Songs.splice(i, 1);
+        console.log("Song deleted!");
+      });
     }
   }
 }

@@ -31,7 +31,7 @@
             </ion-item>
             <ion-item>
                 <ion-label>Artists</ion-label>
-                <select formControlName="artist">
+                <select class="form-control" formControlName="artist">
           <option *ngFor="let a of Artists" [ngValue]="a">
             {{a.name}}
           </option>
