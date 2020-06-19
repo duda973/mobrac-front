@@ -31,17 +31,15 @@
             </ion-item>
             <ion-item>
                 <ion-label>Users</ion-label>
-                <ion-select [(ngModel)]="artist">
-                  <ion-select-option *ngFor="let artist of artists">{{artist.name}}</ion-select-option>
+                <ion-select formControlName="artist">
+                    <ion-select-option *ngFor="let a of Artists" [value]="a.id">{{a.name}}</ion-select-option>
                 </ion-select>
-              </ion-item>
-            </ion-list>
+            </ion-item>
 
             <ion-row>
                 <ion-col>
-                    <ion-button type="submit" color="primary" shape="full" expand="block">Add Song</ion-button>
+                    <ion-button type=" submit " color="primary " shape="full " expand="block ">Add Song</ion-button>
                 </ion-col>
-
             </ion-row>
         </form>
     </ion-list>

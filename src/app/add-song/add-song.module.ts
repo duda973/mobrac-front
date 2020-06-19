@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { AddSongPageRoutingModule } from './add-song-routing.module';
+import { AddSongPageRoutingModule } from "./add-song-routing.module";
 
-import { AddSongPage } from './add-song.page';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddSongPage } from "./add-song.page";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IonicModule,
     AddSongPageRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [AddSongPage]
+  declarations: [AddSongPage],
 })
-export class AddSongPageModule { }
+export class AddSongPageModule {}
