@@ -1,5 +1,10 @@
+import { Artist } from './artist';
+
 export class Song {
   id: number;
   name: string;
-  artist: string;
+  release_date: Date;
+  album_name: string;
+  lyrics: string;
+  artist: Artist;
 }

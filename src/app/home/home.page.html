@@ -14,8 +14,12 @@
 
     <ion-item *ngFor="let song of Songs" class="item-label item ios in-list ion-focusable hydrated">
       <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
-        <h2><b>{{song.song_name}}</b></h2>
-        <h3><i>{{song.artist}}</i></h3>
+        <h2><b>{{song.name}}</b></h2>
+        <h3><i>{{song.artist.name}}</i></h3>
+        <h4>{{song.album_name}}</h4>
+        <h4>{{song.release_date}}</h4>
+        <h4>{{song.lyrics}}</h4>
+
       </ion-label>
 
       <div class="item-note"  item-end>
