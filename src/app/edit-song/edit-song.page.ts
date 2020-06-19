@@ -33,8 +33,11 @@ export class EditSongPage implements OnInit {
   getSongData(id) {
     this.songAPI.getSong(id).subscribe(res => {
       this.updateSongForm.setValue({
-        song_name: res['song_name'],
-        artist: res['artist']
+        name: res['name'],
+        release_date: ['release_date'],
+        album_name: ['album_name'],
+        lyrics: ['lyrics'],
+
       });
     });
   }
