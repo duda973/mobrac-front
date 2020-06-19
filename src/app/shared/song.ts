@@ -1,4 +1,4 @@
-import { Artist } from './artist';
+import { Artist } from "./artist";
 
 export class Song {
   id: number;
