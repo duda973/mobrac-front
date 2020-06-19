@@ -21,8 +21,10 @@ export class AddSongPage implements OnInit {
     private zone: NgZone
   ) {
     this.songForm = this.fb.group({
-      song_name: [''],
-      artist: ['']
+      name: [''],
+      release_date: [''],
+      album_name: [''],
+      lyrics: ['']
     })
   }
 
